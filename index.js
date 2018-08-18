@@ -18,10 +18,7 @@ app.get("/", (req, res) => {
 
 // Handle POST request
 app.post("/", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  handleVkRequest(req.body)
-    .then(data => res.send(JSON.stringify(data)))
-    .catch(console.log);
+  res.send("c982a697");
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
