@@ -23,7 +23,6 @@ app.post("/", (req, res) => {
     res.send(confirmToken);
     return;
   }
-  res.setHeader("Content-Type", "application/json");
   handleVkRequest(req.body)
     .then(data => res.send("ok"))
     .catch(console.log);

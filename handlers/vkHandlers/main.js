@@ -7,12 +7,12 @@ var axios = require("axios");
 module.exports = async ({ type, object }) => {
   switch (type) {
     case "message_new":
-      const [message, attachment] = await handleMessage(object);
+      var [message, attachment] = await handleMessage(object);
     default:
-      return "Unknown type of request.";
+      message = "Unknown type of request";
   }
 
-  await axios.get("https://api.vk.com/method/messages.send", {
+  var response = await axios.get("https://api.vk.com/method/messages.send", {
     params: {
       message,
       user_id: object.from_id,
@@ -21,6 +21,7 @@ module.exports = async ({ type, object }) => {
       v: "V"
     }
   });
+  console.log(response.data);
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
