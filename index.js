@@ -19,7 +19,10 @@ app.get("/", (req, res) => {
 
 // Handle POST request
 app.post("/", (req, res) => {
-  if (req.body.type == "confirmation") res.send(confirmToken);
+  if (req.body.type == "confirmation") {
+    res.send(confirmToken);
+    return;
+  }
   res.setHeader("Content-Type", "application/json");
   handleVkRequest(req.body)
     .then(data => res.send(JSON.stringify(data)))
