@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 // Import handlers
+var { confirmToken } = require("./config/vkConfig");
 var handleVkRequest = require("./handlers/vkHandlers/main");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,7 +19,11 @@ app.get("/", (req, res) => {
 
 // Handle POST request
 app.post("/", (req, res) => {
-  res.send("c982a697");
+  if (req.body.type == "confirmation") res.send(confirmToken);
+  res.setHeader("Content-Type", "application/json");
+  handleVkRequest(req.body)
+    .then(data => res.send(JSON.stringify(data)))
+    .catch(console.log);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
