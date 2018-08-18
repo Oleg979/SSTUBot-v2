@@ -6,6 +6,6 @@ module.exports = {
   appID: 6347837,
   appSecret: "2Y0USubDFTvjdCet3lLV",
   mode: "oauth",
-  confirmToken: "cbe29366",
+  confirmToken: "c982a697",
   groupId: "170258511"
 };
