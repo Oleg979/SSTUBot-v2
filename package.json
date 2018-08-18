@@ -1,0 +1,20 @@
+{
+  "name": "sstu-bot",
+  "version": "1.0.0",
+  "description": "Php bot fot SSTU students",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.3",
+    "vkapi": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "SiltStrider",
+  "license": "MIT"
+}
