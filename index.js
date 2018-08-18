@@ -6,16 +6,6 @@ var app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-// Set up VK API
-var { appID, appSecret, authToken, mode } = require("./config/vkConfig");
-var VK = require("vkapi");
-var vk = new VK({
-  appID,
-  appSecret,
-  mode
-});
-vk.setToken({ token: authToken });
-
 // Import handlers
 var handleVkRequest = require("./handlers/vkHandlers/main");
 
@@ -29,8 +19,9 @@ app.get("/", (req, res) => {
 // Handle POST request
 app.post("/", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  let answer = handleVkRequest(req.body);
-  res.send(JSON.stringify(answer));
+  handleVkRequest(req.body)
+    .then(data => res.send(JSON.stringify(data)))
+    .catch(console.log);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
