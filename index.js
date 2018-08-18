@@ -25,7 +25,7 @@ app.post("/", (req, res) => {
   }
   res.setHeader("Content-Type", "application/json");
   handleVkRequest(req.body)
-    .then(data => res.send(JSON.stringify(data)))
+    .then(data => res.send("ok"))
     .catch(console.log);
 });
 
