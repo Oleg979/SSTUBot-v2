@@ -8,6 +8,7 @@ module.exports = async ({ type, object }) => {
   switch (type) {
     case "message_new":
       var [message, attachment] = await handleMessage(object);
+      break;
     default:
       message = "Unknown type of request";
   }
