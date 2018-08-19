@@ -1,5 +1,6 @@
 var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
 var defineGroup = require("./messagesHandlers/registration/defineGroup");
+var defineExactGroup = require("./messagesHandlers/registration/defineExactGroup");
 var User = require("../dbHandlers/userSchema");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -18,7 +19,6 @@ module.exports = async ({ from_id, text, payload }) => {
       institute: payload.institute
     });
     user = await user.save();
-    console.log("user created: ", user);
     return defineGroup(payload.institute);
   }
 
@@ -26,6 +26,14 @@ module.exports = async ({ from_id, text, payload }) => {
     await User.findOneAndUpdate(
       { id: from_id },
       { $set: { groupName: payload.group } }
+    ).exec();
+    return defineExactGroup(payload.group);
+  }
+
+  if ("groupName" in payload) {
+    await User.findOneAndUpdate(
+      { id: from_id },
+      { $set: { group: payload.groupName } }
     ).exec();
     return ["Спасибо!", { buttons: [], one_time: true }, null];
   }
