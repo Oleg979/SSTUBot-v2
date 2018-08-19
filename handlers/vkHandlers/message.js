@@ -1,4 +1,3 @@
-var { getUserDataById } = require("./others/userData");
 var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
 var User = require("../dbHandlers/userSchema");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
