@@ -21,7 +21,7 @@ module.exports = async ({ type, object }) => {
       access_token: groupToken,
       attachment,
       keyboard,
-      v: "V"
+      v: "5.80"
     }
   });
 };

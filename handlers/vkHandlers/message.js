@@ -7,7 +7,8 @@ var User = require("../dbHandlers/userSchema");
 
 module.exports = async ({ user_id, body, payload }) => {
   console.log(payload);
-  return defineInstitute(user_id);
+  const arr = await defineInstitute(user_id);
+  return arr;
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
