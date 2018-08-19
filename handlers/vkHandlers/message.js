@@ -19,7 +19,7 @@ module.exports = async ({ from_id, text, payload }) => {
     });
     user = await user.save();
     console.log("user created: ", user);
-    return defineGroup(institute);
+    return defineGroup(payload.institute);
   }
 
   if ("group" in payload) {
