@@ -3,7 +3,7 @@ module.exports = async id => {
   const { first_name } = await getUserDataById(id);
   const msg = `Добро пожаловать, ${first_name}! Прежде всего мне нужно определить, в какой группе ты учишься. Для начала напиши название своего института.`;
   const keyboard = {
-    one_time: false,
+    one_time: true,
     buttons: [
       [
         {
