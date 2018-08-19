@@ -3,75 +3,45 @@ module.exports = async id => {
   const { first_name } = await getUserDataById(id);
   const msg = `Добро пожаловать, ${first_name}! Прежде всего мне нужно определить, в какой группе ты учишься. Для начала напиши название своего института.`;
   const keyboard = {
-    one_time: true,
+    one_time: false,
     buttons: [
       [
         {
           action: {
             type: "text",
-            label: "ИНПИТ",
-            payload: {
-              institute: 1
-            }
+            payload: '{"button": "1"}',
+            label: "Red"
           },
-          color: "primary"
+          color: "negative"
         },
         {
           action: {
             type: "text",
-            label: "ИСПМ",
-            payload: {
-              institute: 2
-            }
+            payload: '{"button": "2"}',
+            label: "Green"
           },
-          color: "primary"
+          color: "positive"
         }
       ],
       [
         {
           action: {
             type: "text",
-            label: "УРБАС",
-            payload: {
-              institute: 3
-            }
+            payload: '{"button": "3"}',
+            label: "White"
           },
-          color: "primary"
+          color: "default"
         },
         {
           action: {
             type: "text",
-            label: "ИНЭТМ",
-            payload: {
-              institute: 4
-            }
-          },
-          color: "primary"
-        }
-      ],
-      [
-        {
-          action: {
-            type: "text",
-            label: "ИНЭТС",
-            payload: {
-              institute: 5
-            }
-          },
-          color: "primary"
-        },
-        {
-          action: {
-            type: "text",
-            label: "ФТИ",
-            payload: {
-              institute: 6
-            }
+            payload: '{"button": "4"}',
+            label: "Blue"
           },
           color: "primary"
         }
       ]
     ]
   };
-  return [msg, JSON.stringify(keyboard), null];
+  return [msg, keyboard, null];
 };
