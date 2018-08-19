@@ -14,7 +14,6 @@ module.exports = async ({ type, object }) => {
       message = "Unknown type of request";
   }
 
-  console.log(message, keyboard);
   var response = await axios.get("https://api.vk.com/method/messages.send", {
     params: {
       message,
@@ -25,7 +24,6 @@ module.exports = async ({ type, object }) => {
       v: "5.80"
     }
   });
-  console.log(response);
   return response;
 };
 
