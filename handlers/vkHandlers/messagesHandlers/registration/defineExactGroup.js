@@ -9,15 +9,11 @@ var options = {
 
 module.exports = async group => {
   const $ = await rp(options);
-  const groups = $(".col-group a")
-    .filter((i, el) => {
-      return (
-        $(el)
-          .text()
-          .indexOf(group) >= 0
-      );
-    })
-    .map((i, el) => $(el).text());
+  const groups = $(".col-group a").map((i, el) =>
+    $(el)
+      .text()
+      .get()
+  );
   console.log("GROUPS: ", groups);
   //var keyboard = createKeyboard(groups, 4, "groupName");
   var msg = "Вот какие группы мне удалось найти. Выбери среди них свою.";
