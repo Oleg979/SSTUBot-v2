@@ -1,4 +1,5 @@
 var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
+var defineGroup = require("./messagesHandlers/registration/defineGroup");
 var User = require("../dbHandlers/userSchema");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -18,8 +19,14 @@ module.exports = async ({ from_id, text, payload }) => {
     });
     user = await user.save();
     console.log("user created: ", user);
+    return defineGroup(institute);
+  }
+
+  if ("group" in payload) {
     return ["Спасибо!", { buttons: [], one_time: true }, null];
   }
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// return ["Спасибо!", { buttons: [], one_time: true }, null];

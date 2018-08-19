@@ -5,7 +5,6 @@ var axios = require("axios");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = async ({ type, object }) => {
-  console.log(object);
   switch (type) {
     case "message_new":
       var [message, keyboard, attachment] = await handleMessage(object);
