@@ -12,7 +12,7 @@ module.exports = async ({ from_id, text, payload }) => {
   }
 
   if ("institute" in payload) {
-    const user = new User({
+    var user = new User({
       id: from_id,
       institute: payload.institute
     });
