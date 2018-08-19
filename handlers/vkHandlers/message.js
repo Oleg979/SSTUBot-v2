@@ -1,6 +1,7 @@
 var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
 var defineGroup = require("./messagesHandlers/registration/defineGroup");
 var defineExactGroup = require("./messagesHandlers/registration/defineExactGroup");
+var createKeyboard = require("./messagesHandlers/createKeyboard");
 var User = require("../dbHandlers/userSchema");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,7 +36,15 @@ module.exports = async ({ from_id, text, payload }) => {
       { id: from_id },
       { $set: { group: payload.groupName } }
     ).exec();
-    return ["Спасибо!", { buttons: [], one_time: true }, null];
+    return [
+      "Твоя регистрация прошла успешно! Теперь ты можешь пользоваться всеми моими функциями.",
+      createKeyboard(
+        ["Расписание на сегодня", "Расписание на завтра"],
+        2,
+        "action"
+      ),
+      null
+    ];
   }
 };
 
