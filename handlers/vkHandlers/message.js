@@ -38,9 +38,11 @@ module.exports = async ({ from_id, text, payload }) => {
     };
 
     const $ = await rp(options);
-    var groups = $(".col-group a").filter(el => {
+    var groups = $(".col-group a").filter((i, el) => {
       return $(el).text() == payload.groupName;
     });
+
+    console.log(groups);
 
     await User.findOneAndUpdate(
       { id: from_id },
