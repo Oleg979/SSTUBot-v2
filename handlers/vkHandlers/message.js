@@ -11,7 +11,12 @@ module.exports = async ({ from_id, text, payload }) => {
 
   if ("command" in payload) {
     const count = await User.countDocuments({ id: from_id });
-    if (count > 0) return ["Для общения со мной используй кнопки", null, null];
+    if (count > 0)
+      return [
+        "Для общения со мной используй кнопки меню. Чтобы отобразить меню, нажми на значок справа от поля ввода.",
+        null,
+        null
+      ];
     const arr = await defineInstitute(from_id);
     return arr;
   }
