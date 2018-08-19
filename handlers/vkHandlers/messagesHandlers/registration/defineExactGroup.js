@@ -9,7 +9,7 @@ var options = {
 
 module.exports = async group => {
   const $ = await rp(options);
-  const groups = [];
+  var groups = [];
   $(".col-group a").each((i, el) => {
     groups.push($(el).text());
   });
