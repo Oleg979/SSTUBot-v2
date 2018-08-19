@@ -3,7 +3,7 @@ var createKeyboard = require("../createKeyboard");
 module.exports = institute => {
   const msg = `Отлично, теперь давай определим твоё направление. Выбери его из предложенных ниже.`;
   switch (institute) {
-    case "ИНПИТ":
+    case 1:
       arr = [
         "ИФСТ",
         "ПИНФ",
@@ -17,7 +17,7 @@ module.exports = institute => {
         "ТЛВД"
       ];
       break;
-    case "ИНЭТМ":
+    case 2:
       arr = [
         "АТПП",
         "ИКТС",
@@ -39,7 +39,7 @@ module.exports = institute => {
         "РСК"
       ];
       break;
-    case "ИНЭТС":
+    case 3:
       arr = [
         "СТЗС",
         "ТПЭН",
@@ -52,10 +52,10 @@ module.exports = institute => {
         "СЗС"
       ];
       break;
-    case "УРБАС":
+    case 4:
       arr = ["АРХТ", "ДАРС", "ЗМКД", "НФГД", "СТЗС", "ЭКЛП", "СЗС", "ГРАД"];
       break;
-    case "ИСПМ":
+    case 5:
       arr = [
         "ЖХКИ",
         "ПСХЛ",
@@ -69,7 +69,7 @@ module.exports = institute => {
         "ФНКР"
       ];
       break;
-    case "ФТИ":
+    case 6:
       arr = ["МВТМ", "БИСТ", "ПМИН", "САУП", "ТХНБ", "ТХФИ", "ХМТН", "ЭРСП"];
       break;
     default:
