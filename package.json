@@ -12,6 +12,7 @@
     "mongoose": "^5.2.9",
     "nodemon": "^1.18.3",
     "npm": "^6.4.0",
+    "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "vkapi": "^1.0.0"
   },
