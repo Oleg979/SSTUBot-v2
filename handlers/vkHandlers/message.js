@@ -73,7 +73,6 @@ module.exports = async ({ from_id, text, payload }) => {
   if ("action" in payload) {
     switch (payload.action) {
     }
-    return ["Спасибо!", { buttons: [], one_time: true }, null];
   }
 };
 
