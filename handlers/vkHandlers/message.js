@@ -10,6 +10,8 @@ module.exports = async ({ from_id, text, payload }) => {
   else payload = JSON.parse(payload);
 
   if ("command" in payload) {
+    const count = await User.countDocuments({ id: from_id });
+    console.log("COUNT: ", count);
     const arr = await defineInstitute(from_id);
     return arr;
   }
