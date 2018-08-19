@@ -73,7 +73,7 @@ module.exports = institute => {
       arr = ["МВТМ", "БИСТ", "ПМИН", "САУП", "ТХНБ", "ТХФИ", "ХМТН", "ЭРСП"];
       break;
     default:
-      arr = [];
+      arr = null;
   }
   const keyboard = createKeyboard(arr, 4, "group");
   return [msg, keyboard, null];
