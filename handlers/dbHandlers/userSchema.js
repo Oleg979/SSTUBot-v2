@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   id: Number,
+  institute: String,
+  groupName: String,
   group: String
 });
 
