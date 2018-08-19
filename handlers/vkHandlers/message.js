@@ -4,7 +4,7 @@ var { getUserDataById } = require("./others/userData");
 
 module.exports = async ({ from_id, text }) => {
   const { first_name } = await getUserDataById(from_id);
-  const text = `Добро пожаловать, ${first_name}! Прежде всего мне нужно определить, в какой группе ты учишься. 
+  const msg = `Добро пожаловать, ${first_name}! Прежде всего мне нужно определить, в какой группе ты учишься. 
   Для начала напиши название своего института.`;
   const keyboard = {
     one_time: false,
@@ -29,7 +29,6 @@ module.exports = async ({ from_id, text }) => {
         {
           action: {
             type: "text",
-
             label: "УРБАС"
           },
           color: "primary"
@@ -46,7 +45,6 @@ module.exports = async ({ from_id, text }) => {
         {
           action: {
             type: "text",
-
             label: "ИНЭТС"
           },
           color: "primary"
@@ -61,7 +59,7 @@ module.exports = async ({ from_id, text }) => {
       ]
     ]
   };
-  return [text, keyboard, null];
+  return [msg, keyboard, null];
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
