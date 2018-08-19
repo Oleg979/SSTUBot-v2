@@ -52,8 +52,6 @@ module.exports = async ({ from_id, text, payload }) => {
       return $(el).text() == payload.groupName;
     });
 
-    console.log(groups);
-
     await User.findOneAndUpdate(
       { id: from_id },
       { $set: { group: groups.attr("href") } }
