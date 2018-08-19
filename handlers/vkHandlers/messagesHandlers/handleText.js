@@ -1,5 +1,5 @@
-var User = require("../dbHandlers/userSchema");
-var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
+var User = require("../../dbHandlers/userSchema");
+var defineInstitute = require("../messagesHandlers/registration/defineInstitute");
 
 module.exports = async (id, text) => {
   const count = await User.countDocuments({ id: id });
