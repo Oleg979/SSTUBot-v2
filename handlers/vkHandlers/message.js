@@ -11,7 +11,7 @@ module.exports = async ({ from_id, text, payload }) => {
 
   if ("command" in payload) {
     const count = await User.countDocuments({ id: from_id });
-    console.log("COUNT: ", count);
+    if (count > 0) return ["Для общения со мной используй кнопки", null, null];
     const arr = await defineInstitute(from_id);
     return arr;
   }
