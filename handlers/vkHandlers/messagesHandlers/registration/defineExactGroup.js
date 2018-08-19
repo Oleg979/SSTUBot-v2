@@ -10,11 +10,7 @@ var options = {
 module.exports = async group => {
   const $ = await rp(options);
   const groups = $(".col-group a")
-    .map((i, el) =>
-      $(el)
-        .text()
-        .get()
-    )
+    .map((i, el) => $(el).text())
     .filter((i, el) => {
       return $(el).indexOf(group) >= 0;
     });
