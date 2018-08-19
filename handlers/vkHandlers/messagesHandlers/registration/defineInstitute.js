@@ -73,5 +73,5 @@ module.exports = async id => {
       ]
     ]
   };
-  return [msg, keyboard, null];
+  return [msg, JSON.stringify(keyboard), null];
 };

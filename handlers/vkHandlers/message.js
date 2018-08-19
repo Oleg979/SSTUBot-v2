@@ -2,9 +2,9 @@ var defineInstitute = require("./messagesHandlers/registration/defineInstitute")
 var User = require("../dbHandlers/userSchema");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-module.exports = async ({ user_id, body, payload }) => {
+module.exports = async ({ from_id, text, payload }) => {
   console.log(payload);
-  const arr = await defineInstitute(user_id);
+  const arr = await defineInstitute(from_id);
   return arr;
 };
 
