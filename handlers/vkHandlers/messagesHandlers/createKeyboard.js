@@ -6,7 +6,7 @@ module.exports = (arr, row, name) => {
       action: {
         type: "text",
         label: gr,
-        payload: `{"${name}": ${arr[idx++]}}`
+        payload: `{"${name}": "${arr[idx++]}"}`
       },
       color: "primary"
     };

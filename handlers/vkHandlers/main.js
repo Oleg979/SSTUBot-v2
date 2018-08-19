@@ -13,17 +13,21 @@ module.exports = async ({ type, object }) => {
       message = "Unknown type of request";
   }
 
-  var response = await axios.get("https://api.vk.com/method/messages.send", {
-    params: {
-      message,
-      user_id: object.from_id,
-      access_token: groupToken,
-      attachment,
-      keyboard,
-      v: "5.80"
-    }
-  });
-  return response;
+  try {
+    var response = await axios.get("https://api.vk.com/method/messages.send", {
+      params: {
+        message,
+        user_id: object.from_id,
+        access_token: groupToken,
+        attachment,
+        keyboard,
+        v: "5.80"
+      }
+    });
+    return response;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
