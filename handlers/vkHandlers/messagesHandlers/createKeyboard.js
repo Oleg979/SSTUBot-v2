@@ -1,16 +1,17 @@
 module.exports = (arr, row, name) => {
   let len = arr.length;
+  let idx = 1;
   arr = arr.map(gr => {
     return {
       action: {
         type: "text",
         label: gr,
-        payload: `{"${name}": ${gr}}`
+        payload: `{"${name}": ${idx++}}`
       },
       color: "primary"
     };
   });
-  let idx = 0;
+  idx = 0;
   let num = Math.floor(arr.length / row);
   let keyboard = { one_time: false, buttons: [] };
   for (let i = 0; i < num; i++) {
