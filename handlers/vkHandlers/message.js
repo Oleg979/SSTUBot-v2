@@ -5,10 +5,8 @@ var User = require("../dbHandlers/userSchema");
 module.exports = async ({ from_id, text, payload }) => {
   payload = JSON.parse(payload);
 
-  if ("command" in payload) {
-    const arr = await defineInstitute(from_id);
-    return arr;
-  }
+  const arr = await defineInstitute(from_id);
+  return arr;
 
   if ("institute" in payload) {
     const user = new User({
