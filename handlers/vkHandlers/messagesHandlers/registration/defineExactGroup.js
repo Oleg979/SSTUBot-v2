@@ -18,8 +18,8 @@ module.exports = async group => {
       );
     })
     .map((i, el) => $(el).text());
-  console.log(groups);
-  var keyboard = createKeyboard(groups, 4, "groupName");
+  console.log("GROUPS: ", groups);
+  //var keyboard = createKeyboard(groups, 4, "groupName");
   var msg = "Вот какие группы мне удалось найти. Выбери среди них свою.";
-  return [msg, keyboard, null];
+  return [msg, { buttons: [], one_time: true }, null];
 };
