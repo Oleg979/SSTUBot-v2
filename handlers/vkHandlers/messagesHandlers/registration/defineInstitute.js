@@ -8,5 +8,6 @@ module.exports = async id => {
     2,
     "institute"
   );
+  console.log(keyboard);
   return [msg, keyboard, null];
 };
