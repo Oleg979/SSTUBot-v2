@@ -15,11 +15,19 @@ module.exports = async ({ from_id, text, payload }) => {
   payload = JSON.parse(payload);
 
   if ("institute" in payload) {
-    var user = new User({
-      id: from_id,
-      institute: payload.institute
-    });
-    user = await user.save();
+    const count = await User.countDocuments({ from_id });
+    if (count > 0)
+      await User.findOneAndUpdate(
+        { id: from_id },
+        { $set: { institute: payload.institute } }
+      ).exec();
+    else {
+      var user = new User({
+        id: from_id,
+        institute: payload.institute
+      });
+      user = await user.save();
+    }
     return defineGroup(payload.institute);
   }
 
@@ -41,8 +49,6 @@ module.exports = async ({ from_id, text, payload }) => {
     var groups = $(".col-group a").filter((i, el) => {
       return $(el).text() == payload.groupName;
     });
-
-    console.log(groups);
 
     await User.findOneAndUpdate(
       { id: from_id },
