@@ -15,7 +15,7 @@ module.exports = async group => {
   });
   groups = groups.filter(gr => gr.indexOf(group) >= 0);
   console.log("GROUPS: ", groups);
-  var keyboard = createKeyboard(groups, 4, "groupName");
   var msg = "Вот какие группы мне удалось найти. Выбери среди них свою.";
+  var keyboard = createKeyboard(groups, 4, "groupName");
   return [msg, keyboard, null];
 };
