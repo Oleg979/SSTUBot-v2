@@ -1,4 +1,4 @@
-module.exports = (id)  => {
+module.exports = async id => {
   const { first_name } = await getUserDataById(id);
   const msg = `Добро пожаловать, ${first_name}! Прежде всего мне нужно определить, в какой группе ты учишься. Для начала напиши название своего института.`;
   const keyboard = {
@@ -10,7 +10,7 @@ module.exports = (id)  => {
             type: "text",
             label: "ИНПИТ",
             payload: {
-               institute: 1  
+              institute: 1
             }
           },
           color: "primary"
@@ -20,8 +20,8 @@ module.exports = (id)  => {
             type: "text",
             label: "ИСПМ",
             payload: {
-                institute: 2  
-             }
+              institute: 2
+            }
           },
           color: "primary"
         }
@@ -32,7 +32,7 @@ module.exports = (id)  => {
             type: "text",
             label: "УРБАС",
             payload: {
-                institute: 3  
+              institute: 3
             }
           },
           color: "primary"
@@ -42,7 +42,7 @@ module.exports = (id)  => {
             type: "text",
             label: "ИНЭТМ",
             payload: {
-                institute: 4  
+              institute: 4
             }
           },
           color: "primary"
@@ -54,7 +54,7 @@ module.exports = (id)  => {
             type: "text",
             label: "ИНЭТС",
             payload: {
-                institute: 5  
+              institute: 5
             }
           },
           color: "primary"
@@ -64,7 +64,7 @@ module.exports = (id)  => {
             type: "text",
             label: "ФТИ",
             payload: {
-                institute: 6  
+              institute: 6
             }
           },
           color: "primary"
@@ -73,4 +73,4 @@ module.exports = (id)  => {
     ]
   };
   return [msg, keyboard, null];
-} 
+};
