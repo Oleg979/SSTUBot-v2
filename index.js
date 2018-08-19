@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 
 // Set up Mongoose
 var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
 var { mongoURI } = require("./config/dbConfig");
 mongoose
   .connect(
@@ -15,7 +16,7 @@ mongoose
     { useNewUrlParser: true }
   )
   .then(
-    () => console.log(1),
+    () => console.log("Db connected"),
     err => {
       throw err;
     }
