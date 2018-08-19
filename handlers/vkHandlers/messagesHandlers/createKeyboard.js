@@ -18,6 +18,6 @@ module.exports = (arr, row, name) => {
     keyboard.buttons.push([...arr.slice(idx, idx + row)]);
     idx += row;
   }
-  keyboard.buttons.push([...arr.slice(idx, arr.length)]);
+  if (len % row > 0) keyboard.buttons.push([...arr.slice(idx, arr.length)]);
   return keyboard;
 };
