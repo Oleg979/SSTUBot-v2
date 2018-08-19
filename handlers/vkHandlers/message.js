@@ -3,6 +3,9 @@ var defineGroup = require("./messagesHandlers/registration/defineGroup");
 var defineExactGroup = require("./messagesHandlers/registration/defineExactGroup");
 var createKeyboard = require("./messagesHandlers/createKeyboard");
 var User = require("../dbHandlers/userSchema");
+var cheerio = require("cheerio");
+var rp = require("request-promise");
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = async ({ from_id, text, payload }) => {
@@ -39,9 +42,19 @@ module.exports = async ({ from_id, text, payload }) => {
   }
 
   if ("groupName" in payload) {
+    var options = {
+      uri: "http://rasp.sstu.ru",
+      transform: body => cheerio.load(body)
+    };
+
+    const $ = await rp(options);
+    var groups = $(".col-group a").filter((i, el) => {
+      return $(el).text() == payload.groupName;
+    });
+
     await User.findOneAndUpdate(
       { id: from_id },
-      { $set: { group: payload.groupName } }
+      { $set: { group: groups[0].attr("href") } }
     ).exec();
     return [
       "Твоя регистрация прошла успешно! Теперь ты можешь пользоваться всеми моими функциями.",
