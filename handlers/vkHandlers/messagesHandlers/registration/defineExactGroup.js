@@ -9,7 +9,10 @@ var options = {
 
 module.exports = async group => {
   const $ = await rp(options);
-  const groups = $(".col-group a").text();
+  const groups = [];
+  $(".col-group a").each((i, el) => {
+    groups.push($(el).text());
+  });
   console.log("GROUPS: ", groups);
   //var keyboard = createKeyboard(groups, 4, "groupName");
   var msg = "Вот какие группы мне удалось найти. Выбери среди них свою.";
