@@ -23,7 +23,7 @@ module.exports = async ({ from_id, text, payload }) => {
   }
 
   if ("group" in payload) {
-    await User.findByIdAndUpdate(
+    await User.findOneAndUpdate(
       { id: from_id },
       { $set: { groupName: payload.group } }
     ).exec();
