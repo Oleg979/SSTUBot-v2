@@ -1,12 +1,12 @@
 module.exports = (arr, row, name) => {
   let len = arr.length;
-  let idx = 1;
+  let idx = 0;
   arr = arr.map(gr => {
     return {
       action: {
         type: "text",
         label: gr,
-        payload: `{"${name}": ${idx++}}`
+        payload: `{"${name}": ${arr[idx++]}}`
       },
       color: "primary"
     };

@@ -1,9 +1,10 @@
 var createKeyboard = require("../createKeyboard");
 
 module.exports = institute => {
+  console.log(institute);
   const msg = `Отлично, теперь давай определим твоё направление. Выбери его из предложенных ниже.`;
   switch (institute) {
-    case 1:
+    case "ИНПИТ":
       arr = [
         "ИФСТ",
         "ПИНФ",
@@ -17,7 +18,7 @@ module.exports = institute => {
         "ТЛВД"
       ];
       break;
-    case 2:
+    case "ИНЭТС":
       arr = [
         "АТПП",
         "ИКТС",
@@ -39,7 +40,7 @@ module.exports = institute => {
         "РСК"
       ];
       break;
-    case 3:
+    case "ИНЭТМ":
       arr = [
         "СТЗС",
         "ТПЭН",
@@ -52,10 +53,10 @@ module.exports = institute => {
         "СЗС"
       ];
       break;
-    case 4:
+    case "УРБАС":
       arr = ["АРХТ", "ДАРС", "ЗМКД", "НФГД", "СТЗС", "ЭКЛП", "СЗС", "ГРАД"];
       break;
-    case 5:
+    case "ИСПМ":
       arr = [
         "ЖХКИ",
         "ПСХЛ",
@@ -69,12 +70,13 @@ module.exports = institute => {
         "ФНКР"
       ];
       break;
-    case 6:
+    case "ФТИ":
       arr = ["МВТМ", "БИСТ", "ПМИН", "САУП", "ТХНБ", "ТХФИ", "ХМТН", "ЭРСП"];
       break;
     default:
       arr = null;
   }
   const keyboard = createKeyboard(arr, 4, "group");
+  console.log(keyboard);
   return [msg, keyboard, null];
 };
