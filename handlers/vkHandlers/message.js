@@ -76,7 +76,7 @@ module.exports = async ({ from_id, text, payload }) => {
       case "Сменить группу":
         return await defineInstitute(id);
       default:
-        return ["Спасибо!", { buttons: [], one_time: true }, null];
+        return ["Спасибо!", null, null];
     }
   }
 };
