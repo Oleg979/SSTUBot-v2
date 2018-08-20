@@ -5,6 +5,7 @@ var User = require("../dbHandlers/userSchema");
 var cheerio = require("cheerio");
 var rp = require("request-promise");
 var handleText = require("./messagesHandlers/handleText");
+var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = async ({ from_id, text, payload }) => {
