@@ -18,7 +18,7 @@ module.exports = institute => {
         "ТЛВД"
       ];
       break;
-    case "ИНЭТС":
+    case "ИНЭТМ":
       arr = [
         "АТПП",
         "ИКТС",
@@ -29,11 +29,11 @@ module.exports = institute => {
         "МНСТ",
         "МХРТ",
         "ПБРС",
-        "РХТН",
+        "РТХН",
         "ТМОБ"
       ];
       break;
-    case "ИНЭТМ":
+    case "ИНЭТС":
       arr = [
         "СТЗС",
         "ТПЭН",
