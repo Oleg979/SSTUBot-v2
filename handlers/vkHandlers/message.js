@@ -75,6 +75,7 @@ module.exports = async ({ from_id, text, payload }) => {
   if ("action" in payload) {
     switch (payload.action) {
       case "Сменить группу":
+        await User.findOneAndRemove({ id: from_id }).exec();
         return await defineInstitute(from_id);
       default:
         return ["Спасибо!", null, null];
