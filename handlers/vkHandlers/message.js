@@ -61,7 +61,8 @@ module.exports = async ({ from_id, text, payload }) => {
           "Расписание на сегодня",
           "Расписание на завтра",
           "Что сейчас",
-          "Что дальше"
+          "Что дальше",
+          "Сменить группу"
         ],
         1,
         "action"
@@ -72,6 +73,10 @@ module.exports = async ({ from_id, text, payload }) => {
 
   if ("action" in payload) {
     switch (payload.action) {
+      case "Сменить группу":
+        return await defineInstitute(id);
+      default:
+        return ["Спасибо!", { buttons: [], one_time: true }, null];
     }
   }
 };
