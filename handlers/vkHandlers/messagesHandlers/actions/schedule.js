@@ -4,7 +4,6 @@ var User = require("../../../dbHandlers/userSchema");
 
 module.exports = async id => {
   var user = await User.findOne({ id });
-  console.log(user);
   var group = user.group;
   var options = {
     uri: `http://rasp.sstu.ru${group}`,
@@ -13,6 +12,7 @@ module.exports = async id => {
   const $ = await rp(options);
   var cols = $(".rasp-table-col")
     .first()
-    .children("rasp-table-row  ").length;
+    .children(".rasp-table-row  ").length;
   console.log("LENGTH: ", cols);
+  return ["Спасибо!", null, null];
 };
