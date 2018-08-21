@@ -28,6 +28,11 @@ var handleVkRequest = require("./handlers/vkHandlers/main");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var axios = require("axios");
+setInterval(() => {
+  axios.get("https://sstu-bot.herokuapp.com");
+}, 300000);
+
 // Handle GET request
 app.get("/", (req, res) => {
   res.send("Bot is running...");
