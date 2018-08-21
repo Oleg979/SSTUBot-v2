@@ -17,7 +17,7 @@ module.exports = async id => {
     .children()
     .find(".rasp-table-inner-cell")
     .each((i, el) => {
-      if (
+      /* if (
         $(el)
           .children()
           .find(".small")
@@ -25,7 +25,7 @@ module.exports = async id => {
       ) {
         res.push(`${i + 1}. -`);
         return;
-      }
+      } */
 
       var children = $(el).children();
       var aud = children.find(".aud").text();
