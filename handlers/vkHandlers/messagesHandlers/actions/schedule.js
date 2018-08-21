@@ -15,10 +15,10 @@ module.exports = async id => {
     .first()
     .children(".rasp-table-inner-cell .small")
     .map(function(i, el) {
-      // this === el
-      return $(this).text();
+      return $(el).text();
     })
     .get()
     .join("\n");
+  console.log(cols);
   return [cols, null, null];
 };
