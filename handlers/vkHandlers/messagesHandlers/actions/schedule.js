@@ -10,15 +10,15 @@ module.exports = async id => {
     transform: body => cheerio.load(body)
   };
   const $ = await rp(options);
+  var res = [];
   var cols = $(".rasp-table-col")
     .first()
-    .children(".rasp-table-row  ")
-    .map((i, el) =>
-      $(el)
-        .text()
-        .trim()
-    )
+    .children(".rasp-table-inner-cell .small")
+    .map(function(i, el) {
+      // this === el
+      return $(this).text();
+    })
     .get()
-    .join("");
+    .join("\n");
   return [cols, null, null];
 };
