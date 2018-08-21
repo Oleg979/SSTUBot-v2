@@ -13,12 +13,9 @@ module.exports = async id => {
   var res = [];
   var cols = $(".rasp-table-col")
     .first()
-    .children(".rasp-table-inner-cell .small")
-    .map(function(i, el) {
-      return $(el).text();
-    })
-    .get()
-    .join("\n");
+    .children()
+    .find(".rasp-table-inner-cell .small").length;
+
   console.log(cols);
   return [cols, null, null];
 };
