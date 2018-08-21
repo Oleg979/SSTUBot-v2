@@ -14,14 +14,14 @@ module.exports = async id => {
   var num = 0;
   var cols = $(".rasp-table-col")
     .first()
-    .next()
     .children()
     .find(".rasp-table-inner-cell")
     .each((i, el) => {
       if (
         $(el)
           .children()
-          .find(".small").length < 1
+          .find(".small")
+          .get().length < 1
       ) {
         res.push(`${i + 1}. -`);
         return;
