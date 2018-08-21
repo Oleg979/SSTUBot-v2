@@ -11,8 +11,10 @@ module.exports = async id => {
   };
   const $ = await rp(options);
   var res = [];
+  var num = 0;
   var cols = $(".rasp-table-col")
     .first()
+    .next();
     .children()
     .find(".rasp-table-inner-cell")
     .each((i, el) => {
@@ -30,11 +32,11 @@ module.exports = async id => {
       var subject = children.find(".subject").text();
       var type = children.find(".type").text();
       var teacher = children.find(".teacher").text();
+      num++;
       res.push(
         `${i + 1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
       );
     });
 
-  console.log(cols);
-  return [res.join("\n"), null, null];
+  return [`Сегодня у вас ${num} пары:\n${res.join("\n")}`, null, null];
 };
