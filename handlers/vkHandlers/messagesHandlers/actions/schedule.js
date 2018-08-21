@@ -32,5 +32,13 @@ module.exports = async id => {
       );
     });
 
-  return [`Сегодня у вас ${num} пары:\n${res.join("\n")}`, null, null];
+  return [
+    num > 0
+      ? `Сегодня у тебя ${num} пар${
+          num > 4 ? "" : num > 1 ? "ы" : "а"
+        }:\n${res.join("\n")}`
+      : "Сегодня у тебя нет пар, можешь отдыхать!",
+    null,
+    null
+  ];
 };
