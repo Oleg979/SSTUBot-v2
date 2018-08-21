@@ -14,7 +14,7 @@ module.exports = async id => {
   var num = 0;
   var cols = $(".rasp-table-col")
     .first()
-    .next();
+    .next()
     .children()
     .find(".rasp-table-inner-cell")
     .each((i, el) => {
