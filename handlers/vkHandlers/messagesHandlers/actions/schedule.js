@@ -13,8 +13,12 @@ module.exports = async id => {
   var cols = $(".rasp-table-col")
     .first()
     .children(".rasp-table-row  ")
-    .map((i, el) => $(el).text())
+    .map((i, el) =>
+      $(el)
+        .text()
+        .trim()
+    )
     .get()
-    .join("\n");
+    .join("");
   return [cols, null, null];
 };
