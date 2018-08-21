@@ -12,7 +12,9 @@ module.exports = async id => {
   const $ = await rp(options);
   var cols = $(".rasp-table-col")
     .first()
-    .children(".rasp-table-row  ").length;
-  console.log("LENGTH: ", cols);
-  return ["Спасибо!", null, null];
+    .children(".rasp-table-row  ")
+    .map((i, el) => $(el).text())
+    .get()
+    .join("\n");
+  return [cols, null, null];
 };
