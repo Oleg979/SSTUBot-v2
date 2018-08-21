@@ -6,6 +6,7 @@ var cheerio = require("cheerio");
 var rp = require("request-promise");
 var handleText = require("./messagesHandlers/handleText");
 var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
+var schedule = require("./messagesHandlers/actions/schedule");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = async ({ from_id, text, payload }) => {
@@ -74,6 +75,14 @@ module.exports = async ({ from_id, text, payload }) => {
 
   if ("action" in payload) {
     switch (payload.action) {
+      case "Расписание на сегодня":
+        return await schedule(from_id);
+      case "Расписание на завтра":
+        return await schedule(from_id);
+      case "Что сейчас":
+        return await schedule(from_id);
+      case "Что дальше":
+        return await schedule(from_id);
       case "Сменить группу":
         await User.findOneAndRemove({ id: from_id }).exec();
         return await defineInstitute(from_id);

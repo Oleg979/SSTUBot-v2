@@ -28,6 +28,7 @@ var handleVkRequest = require("./handlers/vkHandlers/main");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Prevent unidling
 var axios = require("axios");
 setInterval(() => {
   axios.get("https://sstu-bot.herokuapp.com");
