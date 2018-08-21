@@ -17,18 +17,12 @@ module.exports = async id => {
     .children()
     .find(".rasp-table-inner-cell")
     .each((i, el) => {
-      /* if (
-        $(el)
-          .children()
-          .find(".small")
-          .get().length < 1
-      ) {
-        res.push(`${i + 1}. -`);
-        return;
-      } */
-
       var children = $(el).children();
       var aud = children.find(".aud").text();
+      if (aud == "") {
+        res.push(`${i + 1}. -`);
+        return;
+      }
       var subject = children.find(".subject").text();
       var type = children.find(".type").text();
       var teacher = children.find(".teacher").text();
