@@ -11,8 +11,10 @@ module.exports = async id => {
     transform: body => cheerio.load(body)
   };
   const $ = await rp(options);
+
   var res = [];
   var num = 0;
+
   var cols = $(".rasp-table-col")
     .first()
     .children()
