@@ -1,12 +1,13 @@
 var cheerio = require("cheerio");
 var rp = require("request-promise");
 var User = require("../../../dbHandlers/userSchema");
+var { baseURL } = require("../../../../config/dbConfig");
 
 module.exports = async id => {
   var user = await User.findOne({ id });
   var group = user.group;
   var options = {
-    uri: `http://rasp.sstu.ru${group}`,
+    uri: `${baseURL}${group}`,
     transform: body => cheerio.load(body)
   };
   const $ = await rp(options);

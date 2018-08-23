@@ -1,9 +1,10 @@
 var cheerio = require("cheerio");
 var rp = require("request-promise");
 var createKeyboard = require("../createKeyboard");
+var { baseURL } = require("../../../../config/dbConfig");
 
 var options = {
-  uri: "http://rasp.sstu.ru",
+  uri: baseURL,
   transform: body => cheerio.load(body)
 };
 
