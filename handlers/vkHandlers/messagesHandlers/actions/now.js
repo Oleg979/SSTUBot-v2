@@ -11,12 +11,11 @@ module.exports = async id => {
     transform: body => cheerio.load(body)
   };
   const $ = await rp(options);
-
   var date = new Date();
   var hours = date.getHours() + dbOffset;
   var minutes = date.getMinutes();
 
-  var text;
+  /* var text;
 
   if (hours < 8) {
     text = `Пары ещё не начались. До первой пары ${60 - minutes} минут`;
@@ -69,7 +68,7 @@ module.exports = async id => {
 
       case 16:
         break;
-    }
+    } */
 
-  return [text, null, null];
+  return ["Спасибо!", null, null];
 };
