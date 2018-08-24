@@ -4,11 +4,11 @@ module.exports = async id => {
   var [res, num] = await schedule(id);
 
   var date = new Date();
-  //var hours = date.getHours() + dbOffset;
-  //var minutes = date.getMinutes();
+  var hours = date.getHours() + dbOffset;
+  var minutes = date.getMinutes();
 
-  var hours = 10;
-  var minutes = 10;
+  hours = 10;
+  minutes = 10;
 
   var num = 0;
   var text;
@@ -87,7 +87,7 @@ module.exports = async id => {
   var lesson =
     num > 0
       ? res[num - 1].length > 10
-        ? `Сейчас идёт пара №${res[num - 1]}\n${text}`
+        ? `Сейчас идёт пара №${res[num - 1]}.\n${text}`
         : "Сейчас у тебя нет никакой пары."
       : text;
 
