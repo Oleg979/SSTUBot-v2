@@ -24,7 +24,7 @@ module.exports = async id => {
       case 9:
         if (minutes <= 30) {
           num = 1;
-          text = `Следующая пара через ${30 - minutes} минут.`;
+          text = `Она закончится через ${30 - minutes} минут.`;
         } else if (minutes > 30 && minutes <= 45)
           text = `Сейчас перемена между 1 и 2 парой. До её конца ${45 -
             minutes} минут`;
@@ -83,9 +83,12 @@ module.exports = async id => {
         break;
     }
 
-  return [
-    num > 0 ? `Сейчас идёт пара №${res[num - 1]}\n${text}` : text,
-    null,
-    null
-  ];
+  var lesson =
+    num > 0
+      ? res[num - 1].length > 10
+        ? `Сейчас идёт пара №${res[num - 1]}\n${text}`
+        : "Сейчас у тебя нет никакой пары."
+      : text;
+
+  return [lesson, null, null];
 };
