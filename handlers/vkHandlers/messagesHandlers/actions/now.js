@@ -7,7 +7,7 @@ module.exports = async id => {
   var hours = date.getHours() + dbOffset;
   var minutes = date.getMinutes();
 
-  hours = 10;
+  hours = 11;
   minutes = 10;
 
   var num = 0;
