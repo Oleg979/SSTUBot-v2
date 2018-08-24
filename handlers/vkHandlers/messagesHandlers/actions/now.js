@@ -14,12 +14,12 @@ module.exports = async id => {
   var text;
 
   if (hours < 8) {
-    text = `Пары ещё не начались. До первой пары ${60 - minutes} минут`;
+    text = `Пары ещё не начались. До первой пары ${60 - minutes} минут.`;
   } else
     switch (hours) {
       case 8:
         num = 1;
-        text = "Сейчас первая пара.";
+        text = `Она закончится через ${60 - minutes + 30} минут.`;
         break;
 
       case 9:
@@ -28,47 +28,48 @@ module.exports = async id => {
           text = `Она закончится через ${30 - minutes} минут.`;
         } else if (minutes > 30 && minutes <= 45)
           text = `Сейчас перемена между 1 и 2 парой. До её конца ${45 -
-            minutes} минут`;
+            minutes} минут.`;
         else {
           num = 2;
-          text = "Сейчас вторая пара";
+          text = `Она закончится через 1 час и ${60 - minutes + 15} минут.`;
         }
         break;
 
       case 10:
         num = 2;
-        text = "Сейчас вторая пара.";
+        text = `Она закончится через ${60 - minutes + 15} минут.`;
         break;
 
       case 11:
         if (minutes <= 15) {
           num = 2;
-          text = "Сейчас вторая пара.";
+          text = `Она закончится через ${15 - minutes} минут.`;
         } else if (minutes > 15 && minutes <= 30)
           text = `Сейчас перемена между 2 и 3 парой. Она закончится через ${30 -
-            minutes} минут`;
+            minutes} минут.`;
         else {
           num = 3;
-          text = "Сейчас третья пара";
+          text = `Она закончится через 1 час и ${60 - minutes} минут.`;
         }
         break;
 
       case 12:
         num = 3;
-        text = "Сейчас третья пара.";
+        text = `Она закончится через ${60 - minutes} минут.`;
         break;
 
       case 13:
         if (minutes > 40) {
           num = 4;
-          text = "Сейчас четвертая пара";
+          text = `Она закончится через 1 час и ${10 + 60 - minutes} минут.`;
         } else
           text = `Сейчас большая перемена. Она закончится через ${40 -
-            minutes} минут`;
+            minutes} минут.`;
         break;
 
       case 14:
         num = 4;
+        text = `Она закончится через ${10 + 60 - minutes} минут.`;
         break;
 
       case 15:
@@ -79,8 +80,8 @@ module.exports = async id => {
         }
         break;
 
-      case 16:
-        num = 5;
+      default:
+        text = "Пары уже закончились.";
         break;
     }
 
