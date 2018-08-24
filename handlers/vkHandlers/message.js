@@ -6,7 +6,7 @@ var cheerio = require("cheerio");
 var rp = require("request-promise");
 var handleText = require("./messagesHandlers/handleText");
 var defineInstitute = require("./messagesHandlers/registration/defineInstitute");
-var schedule = require("./messagesHandlers/actions/schedule");
+var schedule = require("./messagesHandlers/actions/today");
 var now = require("./messagesHandlers/actions/now");
 var next = require("./messagesHandlers/actions/next");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -15,7 +15,7 @@ module.exports = async id => {
   var res = [];
   var num = 0;
 
-  var cols = $(".rasp-table-col")
+  $(".rasp-table-col")
     .first()
     .children()
     .find(".rasp-table-row   .rasp-table-inner-cell")
@@ -35,13 +35,5 @@ module.exports = async id => {
       );
     });
 
-  return [
-    num > 0
-      ? `Сегодня у тебя ${num} пар${
-          num > 4 ? "" : num > 1 ? "ы" : "а"
-        }:\n${res.join("\n")}`
-      : "Сегодня у тебя нет пар, можешь отдыхать!",
-    null,
-    null
-  ];
+  return [res, num];
 };
