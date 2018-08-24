@@ -68,9 +68,11 @@ module.exports = async id => {
         break;
 
       case 15:
-        num = 4;
         if (minutes > 10) text = "Пары уже закончились.";
-        else text = `До конца осталось ${10 - minutes} минут.`;
+        else {
+          num = 4;
+          text = `До конца осталось ${10 - minutes} минут.`;
+        }
         break;
 
       case 16:
