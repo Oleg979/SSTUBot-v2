@@ -1,21 +1,13 @@
-var cheerio = require("cheerio");
-var rp = require("request-promise");
-var User = require("../../../dbHandlers/userSchema");
-var { baseURL, dbOffset } = require("../../../../config/dbConfig");
-
+var { dbOffset } = require("../../../../config/dbConfig");
+var schedule = require("./schedule");
 module.exports = async id => {
-  var user = await User.findOne({ id });
-  var group = user.group;
-  var options = {
-    uri: `${baseURL}${group}`,
-    transform: body => cheerio.load(body)
-  };
-  const $ = await rp(options);
+  var [res, num] = await schedule(id);
+
   var date = new Date();
   var hours = date.getHours() + dbOffset;
   var minutes = date.getMinutes();
 
-  /* var text;
+  var text;
 
   if (hours < 8) {
     text = `Пары ещё не начались. До первой пары ${60 - minutes} минут`;
@@ -68,7 +60,7 @@ module.exports = async id => {
 
       case 16:
         break;
-    } */
+    }
 
-  return ["Спасибо!", null, null];
+  return [text, null, null];
 };
