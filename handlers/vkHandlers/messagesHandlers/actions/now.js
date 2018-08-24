@@ -11,6 +11,7 @@ module.exports = async id => {
   var minutes = 10;
 
   var num = 0;
+  var text;
 
   if (hours < 8) {
     text = `Пары ещё не начались. До первой пары ${60 - minutes} минут`;
