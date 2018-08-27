@@ -39,7 +39,10 @@ module.exports = async id => {
 
       var subjectm = children.find(".subject-m").text();
       if (subjectm != "") {
-        res.push(`${i + 1}. ${subjectm}`);
+        var sub = children.find(".subject-m .subgroup-info");
+        res.push(
+          `${i + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
+        );
       } else
         res.push(
           `${i +
