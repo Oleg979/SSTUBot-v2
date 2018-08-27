@@ -15,7 +15,9 @@ module.exports = async id => {
   var res = [];
   var num = 0;
 
-  $(".rasp-table-col")
+  var row = $(".today");
+  if (row.length < 1) return ["Сегодня воскресенье, поэтому пар нет.", -1];
+  row
     .first()
     .children()
     .find(".rasp-table-row   .rasp-table-inner-cell")
