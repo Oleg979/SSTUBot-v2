@@ -88,8 +88,8 @@ module.exports = async id => {
   var lesson =
     num > 0
       ? res[num].length > 10
-        ? `Сейчас идёт пара №${res[num]}.\n${text}`
-        : "Сейчас у тебя нет никакой пары."
+        ? `Дальше будет пара №${res[num]}.\n${text}`
+        : "Дальше у тебя нет никакой пары."
       : text;
 
   return [lesson, null, null];
