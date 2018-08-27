@@ -85,7 +85,7 @@ module.exports = async ({ from_id, text, payload }) => {
       case "Что сейчас":
         return await now(from_id);
       case "Что дальше":
-        return await now(from_id);
+        return await next(from_id);
       case "Сменить группу":
         await User.findOneAndRemove({ id: from_id }).exec();
         return await defineInstitute(from_id);
