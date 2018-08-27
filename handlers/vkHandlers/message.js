@@ -9,6 +9,7 @@ var defineInstitute = require("./messagesHandlers/registration/defineInstitute")
 var schedule = require("./messagesHandlers/actions/today");
 var now = require("./messagesHandlers/actions/now");
 var next = require("./messagesHandlers/actions/next");
+var tomorrow = require("./messagesHandlers/actions/tomorrow");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = async ({ from_id, text, payload }) => {
@@ -80,7 +81,7 @@ module.exports = async ({ from_id, text, payload }) => {
       case "Расписание на сегодня":
         return await schedule(from_id);
       case "Расписание на завтра":
-        return await schedule(from_id);
+        return await tomorrow(from_id);
       case "Что сейчас":
         return await now(from_id);
       case "Что дальше":
