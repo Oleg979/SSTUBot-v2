@@ -42,9 +42,9 @@ module.exports = async id => {
     });
 
   return [
-    num > 0
-      ? `Завтра у тебя ${num} пар${
-          num > 4 ? "" : num > 1 ? "ы" : "а"
+    pairs > 0
+      ? `Завтра у тебя ${pairs} пар${
+          pairs > 4 ? "" : pairs > 1 ? "ы" : "а"
         }:\n${res.join("\n")}`
       : "Завтра у тебя нет пар, можешь отдыхать!",
     null,
