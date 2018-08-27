@@ -22,7 +22,7 @@ module.exports = async id => {
   num = 0;
 
   $(".rasp-table-col")
-    .get(num + 1)
+    .eq(num + 1)
     .children()
     .find(".rasp-table-row   .rasp-table-inner-cell")
     .each((i, el) => {
