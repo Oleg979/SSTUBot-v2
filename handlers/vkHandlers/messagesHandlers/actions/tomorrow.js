@@ -39,7 +39,7 @@ module.exports = async id => {
 
       var subjectm = children.find(".subject-m").text();
       if (subjectm != "") {
-        res.push(`${i + 1}.${subjectm}`);
+        res.push(`${i + 1}. ${subjectm}`);
       } else
         res.push(
           `${i +
