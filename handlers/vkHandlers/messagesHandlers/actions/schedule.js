@@ -32,9 +32,18 @@ module.exports = async id => {
       var type = children.find(".type").text();
       var teacher = children.find(".teacher").text();
       num++;
-      res.push(
-        `${i + 1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
-      );
+
+      var subjectm = children.find(".subject-m").text();
+      if (subjectm != "") {
+        var sub = children.find(".subgroup-info");
+        res.push(
+          `${i + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
+        );
+      } else
+        res.push(
+          `${i +
+            1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
+        );
     });
 
   return [res, num];
