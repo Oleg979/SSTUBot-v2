@@ -14,57 +14,55 @@ module.exports = async id => {
   var text;
 
   if (hours < 8) {
-    text = `Пары ещё не начались. До первой пары ${60 - minutes} минут.`;
+    num = -1;
+    text = `Она начнётся через ${60 - minutes} минут.`;
   } else
     switch (hours) {
       case 8:
         num = 1;
-        text = `Она закончится через ${60 - minutes + 30} минут.`;
+        text = `Она начнётся через ${60 - minutes + 30 + 15} минут.`;
         break;
 
       case 9:
-        if (minutes <= 30) {
-          num = 1;
-          text = `Она закончится через ${30 - minutes} минут.`;
-        } else if (minutes > 30 && minutes <= 45)
-          text = `Сейчас перемена между 1 и 2 парой. До её конца ${45 -
-            minutes} минут.`;
+        num = 1;
+        if (minutes <= 30)
+          text = `Она начнётся через ${30 - minutes + 15} минут.`;
+        else if (minutes > 30 && minutes <= 45)
+          text = `Она начнётся через ${45 - minutes} минут.`;
         else {
           num = 2;
-          text = `Она закончится через 1 час и ${60 - minutes + 15} минут.`;
+          text = `Она начнётся через 1 час и ${60 - minutes + 15 + 15} минут.`;
         }
         break;
 
       case 10:
         num = 2;
-        text = `Она закончится через ${60 - minutes + 15} минут.`;
+        text = `Она начнётся через ${60 - minutes + 15 + 15} минут.`;
         break;
 
       case 11:
         if (minutes <= 15) {
           num = 2;
-          text = `Она закончится через ${15 - minutes} минут.`;
-        } else if (minutes > 15 && minutes <= 30)
-          text = `Сейчас перемена между 2 и 3 парой. Она закончится через ${30 -
-            minutes} минут.`;
-        else {
+          text = `Она начнётся через ${15 - minutes + 15} минут.`;
+        } else if (minutes > 15 && minutes <= 30) {
+          num = 2;
+          text = `Она начнётся через ${30 - minutes} минут.`;
+        } else {
           num = 3;
-          text = `Она закончится через 1 час и ${60 - minutes} минут.`;
+          text = `Она начнётся через 1 час и ${60 - minutes + 40} минут.`;
         }
         break;
 
       case 12:
         num = 3;
-        text = `Она закончится через ${60 - minutes} минут.`;
+        text = `Она начнётся через ${60 - minutes + 40} минут.`;
         break;
 
       case 13:
+        num = 4;
         if (minutes > 40) {
-          num = 4;
-          text = `Она закончится через 1 час и ${10 + 60 - minutes} минут.`;
-        } else
-          text = `Сейчас большая перемена. Она закончится через ${40 -
-            minutes} минут.`;
+          text = `Она начнётся через 1 час и ${10 + 60 - minutes + 15} минут.`;
+        } else text = `Она начнётся через ${40 - minutes} минут.`;
         break;
 
       case 14:
@@ -76,7 +74,7 @@ module.exports = async id => {
         if (minutes > 10) text = "Пары уже закончились.";
         else {
           num = 4;
-          text = `До конца осталось ${10 - minutes} минут.`;
+          text = `Она начнётся через ${10 - minutes + 15} минут.`;
         }
         break;
 

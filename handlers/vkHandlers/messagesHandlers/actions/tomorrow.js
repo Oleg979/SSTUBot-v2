@@ -19,8 +19,6 @@ module.exports = async id => {
     if ($(el).hasClass("today")) num = i;
   });
 
-  num = 0;
-
   $(".rasp-table-col")
     .eq(num + 1)
     .children()
