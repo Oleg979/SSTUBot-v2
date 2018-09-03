@@ -15,36 +15,38 @@ module.exports = async id => {
   var res = [];
   var num = 0;
 
-  var row = $(".today");
+  var row = $(".rasp-table-row.today");
   if (row.length < 1) return ["Сегодня воскресенье, поэтому пар нет.", -1];
-  row
-    .first()
-    .children()
-    .find(".rasp-table-row   .rasp-table-inner-cell")
-    .each((i, el) => {
-      var children = $(el).children();
-      var aud = children.find(".aud").text();
-      if (aud == "") {
-        res.push(`${i + 1}. -`);
-        return;
-      }
-      var subject = children.find(".subject").text();
-      var type = children.find(".type").text();
-      var teacher = children.find(".teacher").text();
-      num++;
 
-      var subjectm = children.find(".subject-m").text();
-      if (subjectm != "") {
-        var sub = children.find(".subgroup");
-        res.push(
-          `${i + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
-        );
-      } else
-        res.push(
-          `${i +
-            1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
-        );
-    });
+  row.each((i, el) => {
+    $(el)
+      .children()
+      .find(".rasp-table-inner-cell")
+      .each((idx, e) => {
+        var children = $(e).children();
+        var aud = children.find(".aud").text();
+        if (aud == "") {
+          res.push(`${i + 1}. -`);
+          return;
+        }
+        var subject = children.find(".subject").text();
+        var type = children.find(".type").text();
+        var teacher = children.find(".teacher").text();
+        num++;
+
+        var subjectm = children.find(".subject-m").text();
+        if (subjectm != "") {
+          var sub = children.find(".subgroup");
+          res.push(
+            `${i + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
+          );
+        } else
+          res.push(
+            `${i +
+              1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
+          );
+      });
+  });
 
   return [res, num];
 };
