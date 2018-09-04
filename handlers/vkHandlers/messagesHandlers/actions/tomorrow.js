@@ -21,7 +21,7 @@ module.exports = async id => {
     }
   });
 };
-num = $(".rasp-table-col")
+/* num = $(".rasp-table-col")
   .eq(num)
-  .find(".rasp-table-row ").length;
+  .find(".rasp-table-row ").length; */
 return [num, null, null];
