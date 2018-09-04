@@ -14,6 +14,7 @@ module.exports = async id => {
 
   var res = [];
   var num = 0;
+  var amount = 0;
 
   var row = $(".today ");
   if (row.length < 1) return ["Сегодня у вас нет пар", null, null];
@@ -40,6 +41,7 @@ module.exports = async id => {
         );
     }
     num++;
+    amount++;
   });
-  return [res, num];
+  return [res, amount];
 };
