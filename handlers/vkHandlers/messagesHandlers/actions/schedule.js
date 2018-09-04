@@ -15,7 +15,7 @@ module.exports = async id => {
   var res = [];
   var num = 0;
 
-  var row = $(".rasp-table-row.today");
+  var row = $(".today ");
   if (row.length < 1) return ["Сегодня воскресенье, поэтому пар нет.", -1];
 
   row.each((i, el) => {
