@@ -14,7 +14,7 @@ module.exports = async id => {
 
   var n = -1;
   var pairs = 0;
-  var num = 0;
+  var num = 1;
   var amount = 0;
   var res = [];
 
