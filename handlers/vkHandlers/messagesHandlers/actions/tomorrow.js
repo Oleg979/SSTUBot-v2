@@ -16,7 +16,7 @@ module.exports = async id => {
   var num = -1;
   var pairs = 0;
   $(".rasp-table-col").each((i, el) => {
-    if ($(el).find(".today ")) num = i;
+    if ($(el).find(".today ").length != 0) num = i;
   });
   return [num, null, null];
 };
