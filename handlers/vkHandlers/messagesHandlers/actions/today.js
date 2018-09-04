@@ -40,12 +40,12 @@ module.exports = async id => {
       var aud = children.find(".aud").text();
       if (aud == "") {
         res.push(`${num + 1}. -`);
+        num++;
         return;
       }
       var subject = children.find(".subject").text();
       var type = children.find(".type").text();
       var teacher = children.find(".teacher").text();
-      num++;
 
       var subjectm = children.find(".subject-m").text();
       if (subjectm != "") {
@@ -59,6 +59,7 @@ module.exports = async id => {
             1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
         );
     }
+    num++;
   });
   return [res.join("\n"), null, null];
 };
