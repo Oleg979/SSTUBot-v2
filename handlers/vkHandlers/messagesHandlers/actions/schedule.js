@@ -13,7 +13,7 @@ module.exports = async id => {
   const $ = await rp(options);
 
   var res = [];
-  var num = 0;
+  var num = 1;
   var amount = 0;
 
   var row = $(".today ");
@@ -39,9 +39,9 @@ module.exports = async id => {
         res.push(
           `${num}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
         );
+      num++;
+      amount++;
     }
-    num++;
-    amount++;
   });
   return [res, amount];
 };
