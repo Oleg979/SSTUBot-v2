@@ -13,7 +13,8 @@ module.exports = async id => {
   const $ = await rp(options);
 
   var n = -1;
-  var num = 1;
+  var pairs = 0;
+  var num = 0;
   var amount = 0;
   var res = [];
 
@@ -25,7 +26,7 @@ module.exports = async id => {
   $(".rasp-table-col")
     .eq(n + 1)
     .find(".rasp-table-row ")
-    .each(el => {
+    .each((i, el) => {
       var children = $(el).find(".rasp-table-inner-cell");
       var aud = children.find(".aud").text();
       if (aud == "") {
@@ -51,8 +52,8 @@ module.exports = async id => {
 
   return [
     num > 0
-      ? `Завтра у тебя ${amount} пар${
-          amount > 4 ? "" : amount > 1 ? "ы" : "а"
+      ? `Завтра у тебя ${num} пар${
+          num > 4 ? "" : num > 1 ? "ы" : "а"
         }:\n${res.join("\n")}`
       : "Завтра у тебя нет пар, можешь отдыхать!",
     null,
