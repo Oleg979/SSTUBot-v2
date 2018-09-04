@@ -43,6 +43,7 @@ module.exports = async id => {
       res.push(children);
     }
   });
+  console.log(res.join("\n"));
   return [res.join("\n"), null, null];
   /*  row.each((i, el) => {
     $(el)
