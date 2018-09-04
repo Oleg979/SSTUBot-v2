@@ -18,12 +18,10 @@ module.exports = async id => {
   $(".rasp-table-col").each((i, el) => {
     if ($(el).find(".today ").length != 0) {
       num = i;
-      break;
     }
   });
-  num = $(".rasp-table-col")
-  .eq(num)
-  .find(".rasp-table-row ")
-  .length;
-  return [num, null, null];
 };
+num = $(".rasp-table-col")
+  .eq(num)
+  .find(".rasp-table-row ").length;
+return [num, null, null];
