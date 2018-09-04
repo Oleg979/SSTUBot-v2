@@ -41,10 +41,10 @@ module.exports = async id => {
         .find(".rasp-table-inner-cell")
         .children()
         .text();
-      res.push(`${children}\n`);
+      res.push(children);
     }
   });
-  return [res, null, null];
+  return [res.join("\n"), null, null];
   /*  row.each((i, el) => {
     $(el)
       .children()
