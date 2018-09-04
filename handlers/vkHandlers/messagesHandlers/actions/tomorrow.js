@@ -12,7 +12,6 @@ module.exports = async id => {
   };
   const $ = await rp(options);
 
-  var res = [];
   var num = -1;
   var pairs = 0;
   $(".rasp-table-col").each((i, el) => {
