@@ -40,7 +40,6 @@ module.exports = async id => {
       var aud = children.find(".aud").text();
       if (aud == "") {
         res.push(`${num + 1}. -`);
-        num++;
         return;
       }
       var subject = children.find(".subject").text();
