@@ -39,7 +39,6 @@ module.exports = async id => {
       var children = $(el)
         .children()
         .find(".rasp-table-inner-cell")
-        .children()
         .text();
       res.push(children);
     }
