@@ -20,8 +20,9 @@ module.exports = async id => {
       num = i;
     }
   });
+
+  return [num, null, null];
 };
 /* num = $(".rasp-table-col")
   .eq(num)
   .find(".rasp-table-row ").length; */
-return [num, null, null];
