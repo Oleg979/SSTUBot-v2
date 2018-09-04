@@ -34,8 +34,12 @@ module.exports = async id => {
 
   var row = $(".today ");
   if (row.length < 1) return ["Сегодня у вас нет пар", null, null];
-  else return [row.length, null, null];
-
+  row.each((i, el) => {
+    if ($(el).hasClass("rasp-table-row  ")) {
+      num++;
+    }
+  });
+  return [num, null, null];
   /*  row.each((i, el) => {
     $(el)
       .children()
