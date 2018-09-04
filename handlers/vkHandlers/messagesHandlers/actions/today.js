@@ -39,7 +39,7 @@ module.exports = async id => {
       var children = $(el).find(".rasp-table-inner-cell");
       var aud = children.find(".aud").text();
       if (aud == "") {
-        res.push(`${num + 1}. -`);
+        res.push(`${num}. -`);
         num++;
         return;
       }
@@ -50,13 +50,10 @@ module.exports = async id => {
       var subjectm = children.find(".subject-m").text();
       if (subjectm != "") {
         var sub = children.find(".subgroup");
-        res.push(
-          `${num + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
-        );
+        res.push(`${num}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`);
       } else
         res.push(
-          `${num +
-            1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
+          `${num}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
         );
     }
     num++;
