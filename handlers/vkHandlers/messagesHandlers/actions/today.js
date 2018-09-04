@@ -35,7 +35,7 @@ module.exports = async id => {
   var row = $(".today ");
   if (row.length < 1) return ["Сегодня у вас нет пар", null, null];
   row.each((i, el) => {
-    if ($(el).hasClass("rasp-table-row  ")) {
+    if ($(el).hasClass("rasp-table-row ")) {
       num++;
     }
   });
