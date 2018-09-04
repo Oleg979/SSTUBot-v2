@@ -36,10 +36,28 @@ module.exports = async id => {
   if (row.length < 1) return ["Сегодня у вас нет пар", null, null];
   row.each((i, el) => {
     if ($(el).hasClass("rasp-table-row ")) {
-      var children = $(el)
-        .find(".rasp-table-inner-cell")
-        .text();
-      res.push(children);
+      var children = $(el).find(".rasp-table-inner-cell");
+      var aud = children.find(".aud").text();
+      if (aud == "") {
+        res.push(`${i + 1}. -`);
+        return;
+      }
+      var subject = children.find(".subject").text();
+      var type = children.find(".type").text();
+      var teacher = children.find(".teacher").text();
+      num++;
+
+      var subjectm = children.find(".subject-m").text();
+      if (subjectm != "") {
+        var sub = children.find(".subgroup");
+        res.push(
+          `${i + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
+        );
+      } else
+        res.push(
+          `${i +
+            1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
+        );
     }
   });
   console.log(res.join("\n"));
