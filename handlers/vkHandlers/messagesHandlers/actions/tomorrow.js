@@ -16,45 +16,7 @@ module.exports = async id => {
   var num = -1;
   var pairs = 0;
   $(".rasp-table-col").each((i, el) => {
-    if ($(el).hasClass("today")) num = i;
+    if ($(el).find(".today ")) num = i;
   });
-
-  $(".rasp-table-col")
-    .eq(num + 1)
-    .children()
-    .find(".rasp-table-row   .rasp-table-inner-cell")
-    .each((i, el) => {
-      var children = $(el).children();
-      var aud = children.find(".aud").text();
-      if (aud == "") {
-        res.push(`${i + 1}. -`);
-        return;
-      }
-      pairs++;
-      var subject = children.find(".subject").text();
-      var type = children.find(".type").text();
-      var teacher = children.find(".teacher").text();
-
-      var subjectm = children.find(".subject-m").text();
-      if (subjectm != "") {
-        var sub = children.find(".subgroup");
-        res.push(
-          `${i + 1}. ${subjectm} ${sub.eq(0).text()} ${sub.eq(1).text()}`
-        );
-      } else
-        res.push(
-          `${i +
-            1}. ${subject} ${type} в ${aud} ауд. у преподавателя ${teacher}`
-        );
-    });
-
-  return [
-    pairs > 0
-      ? `Завтра у тебя ${pairs} пар${
-          pairs > 4 ? "" : pairs > 1 ? "ы" : "а"
-        }:\n${res.join("\n")}`
-      : "Завтра у тебя нет пар, можешь отдыхать!",
-    null,
-    null
-  ];
+  return [num, null, null];
 };
