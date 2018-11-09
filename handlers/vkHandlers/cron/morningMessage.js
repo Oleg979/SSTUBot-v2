@@ -1,18 +1,27 @@
 const CronJob = require("cron").CronJob;
 var { groupToken } = require("../../../config/vkConfig");
 var axios = require("axios");
+var User = require("../../dbHandlers/userSchema");
+var today = require("../messagesHandlers/actions/today");
 
 const job = new CronJob(
-  "00 52 20 * * *",
+  "00 00 21 * * *",
   function() {
-    console.log("Проверка связи!");
-    axios.get("https://api.vk.com/method/messages.send", {
-      params: {
-        message: "Hello!",
-        user_id: 89945177,
-        access_token: groupToken,
-        v: "5.80"
-      }
+    console.log("Morning message fired!");
+    User.find({}, (err, users) => {
+      if (err) return console.log("Evening message: Problem fetching users");
+      users.forEach(user => {
+        today(user.id).then(res => {
+          axios.get("https://api.vk.com/method/messages.send", {
+            params: {
+              message: res[0],
+              user_id: user.id,
+              access_token: groupToken,
+              v: "5.80"
+            }
+          });
+        });
+      });
     });
   },
   null,
