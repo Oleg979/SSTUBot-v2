@@ -5,7 +5,7 @@ var User = require("../../dbHandlers/userSchema");
 var today = require("../messagesHandlers/actions/today");
 
 const job = new CronJob(
-  "00 00 21 * * *",
+  "00 30 6 * * *",
   function() {
     console.log("Morning message fired!");
     User.find({}, (err, users) => {
