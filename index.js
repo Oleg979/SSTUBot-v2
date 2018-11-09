@@ -5,6 +5,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
+require("./handlers/vkHandlers/cron/morningMessage");
 
 // Set up Mongoose
 var mongoose = require("mongoose");
