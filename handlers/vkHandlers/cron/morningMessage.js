@@ -3,13 +3,13 @@ var { groupToken } = require("../../../config/vkConfig");
 var axios = require("axios");
 
 const job = new CronJob(
-  "00 49 20 * * *",
+  "00 52 20 * * *",
   function() {
-    console.log("fire!");
+    console.log("Проверка связи!");
     axios.get("https://api.vk.com/method/messages.send", {
       params: {
         message: "Hello!",
-        user_id: 208990427,
+        user_id: 89945177,
         access_token: groupToken,
         v: "5.80"
       }
