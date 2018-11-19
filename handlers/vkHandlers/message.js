@@ -69,7 +69,7 @@ module.exports = async ({ from_id, text, payload }) => {
           "Что сейчас",
           "Что дальше",
           "Сменить группу",
-          "Отписаться/подписаться на утреннюю рассылку"
+          "Отписаться/подписаться на рассылку"
         ],
         1,
         "action"
@@ -91,7 +91,7 @@ module.exports = async ({ from_id, text, payload }) => {
       case "Сменить группу":
         await User.findOneAndRemove({ id: from_id }).exec();
         return await defineInstitute(from_id);
-      case "Отписаться/подписаться на утреннюю рассылку":
+      case "Отписаться/подписаться на рассылку":
         return await subscribe(from_id);
       default:
         return ["Спасибо!", null, null];
