@@ -88,7 +88,7 @@ module.exports = async ({ from_id, text, payload }) => {
         return await now(from_id);
       case "Что дальше":
         return await next(from_id);
-      case "Отписаться/подписаться на утреннюю рассылку":
+      case "Подиска/отписка на рассылку":
         return await subscribe(from_id);
       case "Сменить группу":
         await User.findOneAndRemove({ id: from_id }).exec();
