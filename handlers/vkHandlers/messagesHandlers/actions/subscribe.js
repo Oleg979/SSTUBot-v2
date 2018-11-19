@@ -1,3 +1,5 @@
 module.exports = async id => {
-  return ["Working", null, null];
+  var user = await User.findOne({ id });
+  var isSubscribed = user.isSubscribed;
+  return [isSubscribed ? "Unsub" : "Sub", null, null];
 };
