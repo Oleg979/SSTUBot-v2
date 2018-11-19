@@ -10,6 +10,7 @@ var schedule = require("./messagesHandlers/actions/today");
 var now = require("./messagesHandlers/actions/now");
 var next = require("./messagesHandlers/actions/next");
 var tomorrow = require("./messagesHandlers/actions/tomorrow");
+var subscribe = require("./messagesHandlers/actions/subscribe");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = async ({ from_id, text, payload }) => {
@@ -67,7 +68,8 @@ module.exports = async ({ from_id, text, payload }) => {
           "Расписание на завтра",
           "Что сейчас",
           "Что дальше",
-          "Сменить группу"
+          "Сменить группу",
+          "Отписаться/подписаться на утреннюю рассылку"
         ],
         1,
         "action"
@@ -86,6 +88,8 @@ module.exports = async ({ from_id, text, payload }) => {
         return await now(from_id);
       case "Что дальше":
         return await next(from_id);
+      case "Отписаться/подписаться на утреннюю рассылку":
+        return await subscribe(from_id);
       case "Сменить группу":
         await User.findOneAndRemove({ id: from_id }).exec();
         return await defineInstitute(from_id);
