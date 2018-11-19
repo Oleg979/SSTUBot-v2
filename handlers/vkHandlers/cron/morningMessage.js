@@ -11,6 +11,7 @@ const job = new CronJob(
     User.find({}, (err, users) => {
       if (err) return console.log("Evening message: Problem fetching users");
       users.forEach(user => {
+        if (!user.isSubscribed) return;
         today(user.id).then(res => {
           axios.get("https://api.vk.com/method/messages.send", {
             params: {

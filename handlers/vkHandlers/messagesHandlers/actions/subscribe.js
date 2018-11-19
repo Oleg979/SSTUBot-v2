@@ -7,5 +7,9 @@ module.exports = async id => {
     { id },
     { $set: { isSubscribed: !isSubscribed } }
   ).exec();
-  return [isSubscribed ? "Unsub" : "Sub", null, null];
+  return [
+    isSubscribed ? "Вы отписались от рассылки." : "Вы подписались на рассылку.",
+    null,
+    null
+  ];
 };
