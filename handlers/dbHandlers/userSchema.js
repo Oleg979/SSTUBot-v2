@@ -5,8 +5,7 @@ var userSchema = new Schema({
   id: Number,
   institute: String,
   groupName: String,
-  group: String,
-  isSubscribed: Boolean
+  group: String
 });
 
 var User = mongoose.model("User", userSchema);
