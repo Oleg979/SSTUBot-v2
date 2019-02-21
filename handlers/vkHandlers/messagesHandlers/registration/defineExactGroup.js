@@ -14,7 +14,7 @@ module.exports = async group => {
   $(".col-group a").each((i, el) => {
     groups.push($(el).text());
   });
-  groups = groups.filter(gr => gr.indexOf(group) >= 0);
+  groups = groups.filter(gr => gr.indexOf(group) >= 0 && gr.indexOf("и") < 0);
   console.log("GROUPS: ", groups);
   var msg = "Вот какие группы мне удалось найти. Выбери среди них свою.";
   var keyboard = createKeyboard(groups, 2, "groupName");
